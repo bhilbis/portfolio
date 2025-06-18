@@ -6,12 +6,19 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "scn:add": "bunx shadcn@latest add"
   },
   "dependencies": {
+    "@radix-ui/react-accordion": "^1.2.11",
+    "@radix-ui/react-avatar": "^1.1.10",
+    "@tabler/icons-react": "^3.34.0",
+    "clsx": "^2.1.1",
+    "motion": "^12.16.0",
+    "next": "15.3.2",
+    "next-themes": "^0.4.6",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.3.2"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "typescript": "^5",
