@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { NavBar } from "@/components/navigations";
+import { ThemeInitializer } from "@/context/theme-context";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -21,8 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`min-h-screen antialiased ${inter.variable}`}
+        className={`antialiased ${inter.variable}`}
       >
+        <ThemeInitializer/>
         <NavBar />
         <main className="p-8">
           {children}

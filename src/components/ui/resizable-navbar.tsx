@@ -11,7 +11,6 @@ import Image from "next/image";
 
 import React, { useRef, useState } from "react";
 
-
 interface NavbarProps {
   children: React.ReactNode;
   className?: string;
@@ -196,7 +195,6 @@ export const MobileNavMenu = ({
   children,
   className,
   isOpen,
-  onClose,
 }: MobileNavMenuProps) => {
   return (
     <AnimatePresence>
@@ -243,7 +241,7 @@ export const NavbarLogo = () => {
         width={30}
         height={30}
       />
-      <span className="font-medium text-black dark:text-white">Startup</span>
+      <span className="font-medium text-black dark:text-white">AoiXsy</span>
     </a>
   );
 };
