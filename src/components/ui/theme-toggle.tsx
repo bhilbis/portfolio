@@ -17,11 +17,16 @@ export const ThemeToggle = ({className}: ThemeClass) => {
   useEffect(() => setIsMounted(true), []);
 
   const owlSoundRef = useRef<HTMLAudioElement | null>(null);
-  // const lightSoundRef = useRef<HTMLAudioElement | null>(null);
+  const chickenSoundRef = useRef<HTMLAudioElement | null>(null);
 
   const handleToggle = () => {
     if (theme === "dark") {
-      //
+      const chicken = chickenSoundRef.current;
+      if (chicken) {
+        chicken.volume = 0.3;
+        chicken.playbackRate = 1.6;
+        chicken.play();
+      }
     } else {
       const owl = owlSoundRef.current;
       if (owl) {
@@ -38,7 +43,7 @@ export const ThemeToggle = ({className}: ThemeClass) => {
   return (
     <>
       <audio ref={owlSoundRef} src="/backsound/dark/owl-hooting-2.mp3" preload="auto" />
-      {/* <audio ref={lightSoundRef} src="/sounds/rooster.mp3" preload="auto" /> */}
+      <audio ref={chickenSoundRef} src="/backsound/light/chicken.mp3" preload="auto" />
 
       <motion.div
         className={cn(

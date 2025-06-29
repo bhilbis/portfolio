@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { NavBar } from "@/components/navigations";
 import { ThemeInitializer } from "@/context/theme-context";
+import CursorEffect from "@/components/ui/cursor-effect";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -24,9 +25,10 @@ export default function RootLayout({
       <body
         className={`antialiased ${inter.variable}`}
       >
-        <ThemeInitializer/>
+        <ThemeInitializer />
         <NavBar />
-        <main className="p-8">
+        <CursorEffect />
+        <main className="p-4">
           {children}
         </main>
       </body>
