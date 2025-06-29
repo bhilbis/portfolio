@@ -2,193 +2,97 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ExternalLink, Folder, FolderOpen, Github } from "lucide-react";
+import { Folder, FolderOpen} from "lucide-react";
 import {
   Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Button } from "./button";
+import { ProjectDialogContent } from "./dialog-content";
 
 const projects = [
   {
-    title: "E-Commerce Platform",
-    description:
-      "A comprehensive e-commerce solution featuring real-time inventory management, advanced payment processing with Stripe integration, and a powerful admin dashboard with analytics.",
-    image:
-      "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800",
-    technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "Redis"],
-    github: "#",
-    demo: "#",
+    title: 'E-Commerce Platform',
+    description: 'A comprehensive e-commerce solution featuring real-time inventory management, advanced payment processing with Stripe integration, and a powerful admin dashboard with analytics.',
+    image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
+    technologies: ['Next.js', 'TypeScript', 'Stripe', 'PostgreSQL', 'Redis'],
+    github: '#',
+    demo: '#',
     stats: {
-      duration: "3 months",
-      team: "4 developers",
-      impact: "+150% sales",
+      duration: '3 months',
+      team: '4 developers',
+      impact: '+150% sales'
     },
     highlights: [
-      "Real-time inventory tracking",
-      "Multi-payment gateway integration",
-      "Advanced analytics dashboard",
-      "Mobile-first responsive design",
-    ],
+      'Real-time inventory tracking',
+      'Multi-payment gateway integration',
+      'Advanced analytics dashboard',
+      'Mobile-first responsive design'
+    ]
   },
   {
-    title: "E-Commerce Platform",
-    description:
-      "A comprehensive e-commerce solution featuring real-time inventory management, advanced payment processing with Stripe integration, and a powerful admin dashboard with analytics.",
-    image:
-      "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800",
-    technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "Redis"],
-    github: "#",
-    demo: "#",
+    title: 'Analytics Dashboard',
+    description: 'Enterprise-grade analytics platform with machine learning insights, predictive modeling, and interactive data visualizations for business intelligence.',
+    image: 'https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&w=800',
+    technologies: ['Python', 'React', 'TensorFlow', 'D3.js', 'FastAPI'],
+    github: '#',
+    demo: '#',
     stats: {
-      duration: "3 months",
-      team: "4 developers",
-      impact: "+150% sales",
+      duration: '6 months',
+      team: '5 developers',
+      impact: '+300% insights'
     },
     highlights: [
-      "Real-time inventory tracking",
-      "Multi-payment gateway integration",
-      "Advanced analytics dashboard",
-      "Mobile-first responsive design",
-    ],
+      'Machine learning predictions',
+      'Interactive data visualizations',
+      'Real-time data processing',
+      'Custom report generation'
+    ]
   },
   {
-    title: "E-Commerce Platform",
-    description:
-      "A comprehensive e-commerce solution featuring real-time inventory management, advanced payment processing with Stripe integration, and a powerful admin dashboard with analytics.",
-    image:
-      "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800",
-    technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "Redis"],
-    github: "#",
-    demo: "#",
+    title: 'Crypto Trading Bot',
+    description: 'Sophisticated cryptocurrency trading bot with machine learning algorithms, risk management, and real-time market analysis for automated trading.',
+    image: 'https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg?auto=compress&cs=tinysrgb&w=800',
+    technologies: ['Python', 'React', 'WebSocket', 'TensorFlow', 'Docker'],
+    github: '#',
+    demo: '#',
     stats: {
-      duration: "3 months",
-      team: "4 developers",
-      impact: "+150% sales",
+      duration: '5 months',
+      team: '2 developers',
+      impact: '+85% ROI'
     },
     highlights: [
-      "Real-time inventory tracking",
-      "Multi-payment gateway integration",
-      "Advanced analytics dashboard",
-      "Mobile-first responsive design",
-    ],
+      'ML-powered trading algorithms',
+      'Real-time market analysis',
+      'Risk management system',
+      'Portfolio optimization'
+    ]
   },
   {
-    title: "E-Commerce Platform",
-    description:
-      "A comprehensive e-commerce solution featuring real-time inventory management, advanced payment processing with Stripe integration, and a powerful admin dashboard with analytics.",
-    image:
-      "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800",
-    technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "Redis"],
-    github: "#",
-    demo: "#",
+    title: 'Learning Management System',
+    description: 'Comprehensive LMS with interactive course creation, student progress tracking, AI-powered assessments, and virtual classroom integration.',
+    image: 'https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=800',
+    technologies: ['Vue.js', 'Laravel', 'MySQL', 'WebRTC', 'AWS'],
+    github: '#',
+    demo: '#',
     stats: {
-      duration: "3 months",
-      team: "4 developers",
-      impact: "+150% sales",
+      duration: '7 months',
+      team: '4 developers',
+      impact: '5K+ students'
     },
     highlights: [
-      "Real-time inventory tracking",
-      "Multi-payment gateway integration",
-      "Advanced analytics dashboard",
-      "Mobile-first responsive design",
-    ],
-  },
-  {
-    title: "E-Commerce Platform",
-    description:
-      "A comprehensive e-commerce solution featuring real-time inventory management, advanced payment processing with Stripe integration, and a powerful admin dashboard with analytics.",
-    image:
-      "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800",
-    technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "Redis"],
-    github: "#",
-    demo: "#",
-    stats: {
-      duration: "3 months",
-      team: "4 developers",
-      impact: "+150% sales",
-    },
-    highlights: [
-      "Real-time inventory tracking",
-      "Multi-payment gateway integration",
-      "Advanced analytics dashboard",
-      "Mobile-first responsive design",
-    ],
-  },
-  {
-    title: "E-Commerce Platform",
-    description:
-      "A comprehensive e-commerce solution featuring real-time inventory management, advanced payment processing with Stripe integration, and a powerful admin dashboard with analytics.",
-    image:
-      "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800",
-    technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "Redis"],
-    github: "#",
-    demo: "#",
-    stats: {
-      duration: "3 months",
-      team: "4 developers",
-      impact: "+150% sales",
-    },
-    highlights: [
-      "Real-time inventory tracking",
-      "Multi-payment gateway integration",
-      "Advanced analytics dashboard",
-      "Mobile-first responsive design",
-    ],
-  },
-  {
-    title: "E-Commerce Platform",
-    description:
-      "A comprehensive e-commerce solution featuring real-time inventory management, advanced payment processing with Stripe integration, and a powerful admin dashboard with analytics.",
-    image:
-      "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800",
-    technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "Redis"],
-    github: "#",
-    demo: "#",
-    stats: {
-      duration: "3 months",
-      team: "4 developers",
-      impact: "+150% sales",
-    },
-    highlights: [
-      "Real-time inventory tracking",
-      "Multi-payment gateway integration",
-      "Advanced analytics dashboard",
-      "Mobile-first responsive design",
-    ],
-  },{
-    title: "E-Commerce Platform",
-    description:
-      "A comprehensive e-commerce solution featuring real-time inventory management, advanced payment processing with Stripe integration, and a powerful admin dashboard with analytics.",
-    image:
-      "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800",
-    technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "Redis"],
-    github: "#",
-    demo: "#",
-    stats: {
-      duration: "3 months",
-      team: "4 developers",
-      impact: "+150% sales",
-    },
-    highlights: [
-      "Real-time inventory tracking",
-      "Multi-payment gateway integration",
-      "Advanced analytics dashboard",
-      "Mobile-first responsive design",
-    ],
+      'Interactive course builder',
+      'AI-powered assessments',
+      'Virtual classroom integration',
+      'Progress analytics'
+    ]
   },
 ];
 
 export default function MacOSFolderView() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
   
   return (
-    <div className="min-h-[30vh] border rounded-xl shadow-inner bg-gradient-to-b from-gray-200 to-white dark:from-gray-900 dark:to-gray-800 text-gray-900 dark:text-white flex animate-fade-in">
+    <div className="min-h-[40vh] border rounded-xl shadow-inner bg-gradient-to-b from-gray-200 to-white dark:from-gray-900 dark:to-gray-800 text-gray-900 dark:text-white flex animate-fade-in">
       {/* Sidebar */} 
       <aside className="w-64 bg-white/70 dark:bg-gray-800/70 backdrop-blur-md border-r border-gray-300 dark:border-gray-700 p-6 hidden md:block">
         <ul className="space-y-2 text-sm mt-14 md:mt-0">
@@ -257,105 +161,11 @@ export default function MacOSFolderView() {
                 </motion.div>
               </DialogTrigger>
 
-              <DialogContent className="max-w-2xl" showCloseButton={false} >
-                <div className="flex items-end justify-end mb-4 w-full">
-                  <div className="flex gap-2">
-                    <div className="w-3 h-3 bg-green-500 hover:bg-green-400 rounded-full" />
-                    <div className="w-3 h-3 bg-yellow-500 hover:bg-yellow-400 rounded-full" />
-                    <button
-                      onClick={() => setOpenIndex(null)}
-                      className="w-3 h-3 bg-red-500 hover:bg-red-400 rounded-full"
-                    />
-                  </div>
-                </div>
-
-                <DialogHeader>
-                  <DialogTitle>{project.title}</DialogTitle>
-                  <DialogDescription>{project.description}</DialogDescription>
-                </DialogHeader>
-                
-                <div 
-                  className="relative overflow-hidden h-64"
-                  onMouseEnter={() => setHoveredProject(index)}
-                  onMouseLeave={() => setHoveredProject(null)}
-                >
-                   <motion.img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.6 }}
-                  />
-                   <motion.div
-                     initial={{ opacity: 0, y: 30 }}
-                      animate={{
-                        opacity: hoveredProject === index ? 1 : 0,
-                        y: hoveredProject === index ? 0 : 30,
-                      }}
-                      transition={{ duration: 0.6, ease: "easeOut" }}
-                     className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end p-6"
-                   >
-                     <div className="flex gap-3">
-                       <Button
-                         size="sm"
-                         variant="outline"
-                         className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm"
-                         asChild
-                       >
-                         <a href={project.github} target="_blank" rel="noopener noreferrer">
-                           <Github className="h-4 w-4 mr-2" />
-                           Code
-                         </a>
-                       </Button>
-                       <Button
-                         size="sm"
-                         className="bg-blue-600 hover:bg-blue-700 text-white"
-                         asChild
-                       >
-                         <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                           <ExternalLink className="h-4 w-4 mr-2" />
-                           Live Demo
-                         </a>
-                       </Button>
-                     </div>
-                   </motion.div>
-                 </div>
-
-                <div className="text-sm space-y-2">
-                  <p>
-                    <strong>Durasi:</strong> {project.stats.duration}
-                  </p>
-                  <p>
-                    <strong>Tim:</strong> {project.stats.team}
-                  </p>
-                  <p>
-                    <strong>Dampak:</strong> {project.stats.impact}
-                  </p>
-
-                  <div>
-                    <strong>Fitur Utama:</strong>
-                    <ul className="list-disc ml-5 mt-1">
-                      {project.highlights.map((item, idx) => (
-                        <li key={idx}>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div>
-                    <strong>Teknologi:</strong>
-                    <div className="flex flex-wrap gap-2 mt-2">
-                      {project.technologies.map((tech) => (
-                        <span
-                          key={tech}
-                          className="bg-gray-200 dark:bg-gray-700 text-xs px-2 py-1 rounded"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </DialogContent>
+              <ProjectDialogContent
+                project={project}
+                index={index}
+                onClose={() => setOpenIndex(null)}
+              />
             </Dialog>
             ))}
           </div>
@@ -417,105 +227,11 @@ export default function MacOSFolderView() {
                 </motion.div>
               </DialogTrigger>
 
-              <DialogContent className="max-w-2xl" showCloseButton={false} >
-                <div className="flex items-end justify-end mb-4 w-full">
-                  <div className="flex gap-2">
-                    <div className="w-3 h-3 bg-green-500 hover:bg-green-400 rounded-full" />
-                    <div className="w-3 h-3 bg-yellow-500 hover:bg-yellow-400 rounded-full" />
-                    <button
-                      onClick={() => setOpenIndex(null)}
-                      className="w-3 h-3 bg-red-500 hover:bg-red-400 rounded-full"
-                    />
-                  </div>
-                </div>
-
-                <DialogHeader>
-                  <DialogTitle>{project.title}</DialogTitle>
-                  <DialogDescription>{project.description}</DialogDescription>
-                </DialogHeader>
-                
-                <div 
-                  className="relative overflow-hidden h-64"
-                  onMouseEnter={() => setHoveredProject(index)}
-                  onMouseLeave={() => setHoveredProject(null)}
-                >
-                   <motion.img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.6 }}
-                  />
-                   <motion.div
-                     initial={{ opacity: 0, y: 30 }}
-                      animate={{
-                        opacity: hoveredProject === index ? 1 : 0,
-                        y: hoveredProject === index ? 0 : 30,
-                      }}
-                      transition={{ duration: 0.6, ease: "easeOut" }}
-                     className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end p-6"
-                   >
-                     <div className="flex gap-3">
-                       <Button
-                         size="sm"
-                         variant="outline"
-                         className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm"
-                         asChild
-                       >
-                         <a href={project.github} target="_blank" rel="noopener noreferrer">
-                           <Github className="h-4 w-4 mr-2" />
-                           Code
-                         </a>
-                       </Button>
-                       <Button
-                         size="sm"
-                         className="bg-blue-600 hover:bg-blue-700 text-white"
-                         asChild
-                       >
-                         <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                           <ExternalLink className="h-4 w-4 mr-2" />
-                           Live Demo
-                         </a>
-                       </Button>
-                     </div>
-                   </motion.div>
-                 </div>
-
-                <div className="text-sm space-y-2">
-                  <p>
-                    <strong>Durasi:</strong> {project.stats.duration}
-                  </p>
-                  <p>
-                    <strong>Tim:</strong> {project.stats.team}
-                  </p>
-                  <p>
-                    <strong>Dampak:</strong> {project.stats.impact}
-                  </p>
-
-                  <div>
-                    <strong>Fitur Utama:</strong>
-                    <ul className="list-disc ml-5 mt-1">
-                      {project.highlights.map((item, idx) => (
-                        <li key={idx}>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div>
-                    <strong>Teknologi:</strong>
-                    <div className="flex flex-wrap gap-2 mt-2">
-                      {project.technologies.map((tech) => (
-                        <span
-                          key={tech}
-                          className="bg-gray-200 dark:bg-gray-700 text-xs px-2 py-1 rounded"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </DialogContent>
+              <ProjectDialogContent
+                project={project}
+                index={index}
+                onClose={() => setOpenIndex(null)}
+              />
             </Dialog>
           ))}
         </div>

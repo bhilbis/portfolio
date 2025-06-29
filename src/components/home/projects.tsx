@@ -1,28 +1,45 @@
 "use client";
 
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import FolderCard  from '../ui/folder-card';
 
 export function Projects() {
   const containerRef = useRef<HTMLDivElement>(null);
   
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-
-  const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -50]);
-
   return (
     <section id="projects" className="py-16 md:py-24 relative overflow-hidden rounded-xl" ref={containerRef}>
       {/* Animated Background */}
       <motion.div
-        style={{ y: backgroundY }}
+        initial={{ y: 0 }}
+        animate={{ y: [0, 100, -100, 0] }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
         className="absolute inset-0 pointer-events-none"
       >
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-blue-500/10 dark:bg-blue-500/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-orange-500/10 dark:bg-orange-500/20 rounded-full blur-3xl" />
+        <motion.div
+          animate={{ x: [0, -30, 30, 0], y: [0, 10, -10, 0] }}
+          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/4 right-1/4 w-96 h-96 bg-blue-400/30 dark:bg-blue-500/20 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{ x: [0, 20, -20, 0], y: [0, -15, 15, 0] }}
+          transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-orange-400/30 dark:bg-orange-500/20 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{ x: [0, -25, 25, 0], y: [0, 20, -20, 0] }}
+          transition={{ duration: 35, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/2 right-1/4 w-64 h-64 bg-purple-400/30 dark:bg-purple-500/20 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{ x: [0, 15, -15, 0], y: [0, -10, 10, 0] }}
+          transition={{ duration: 28, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-1/2 left-1/4 w-40 h-40 bg-pink-400/30 dark:bg-pink-500/20 rounded-full blur-3xl"
+        />
       </motion.div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

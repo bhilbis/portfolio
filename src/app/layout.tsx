@@ -4,6 +4,7 @@ import "./globals.css";
 import { NavBar } from "@/components/navigations";
 import { ThemeInitializer } from "@/context/theme-context";
 import CursorEffect from "@/components/ui/cursor-effect";
+import LoadingScreen from "@/context/loading-screen";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -25,6 +26,7 @@ export default function RootLayout({
       <body
         className={`antialiased ${inter.variable}`}
       >
+        <LoadingScreen />
         <ThemeInitializer />
         <NavBar />
         <CursorEffect />
