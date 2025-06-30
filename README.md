@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌟 bhilbis/portfolio
 
-## Getting Started
+Welcome to my personal website!  
+This portfolio is a showcase of my work, skills, and passions—crafted with care, powered by [Bun](https://bun.sh/) for speed and elegance.
 
-First, run the development server:
+---
+
+## 🚀 About Me
+
+Hi! I'm **bhilbis** — a passionate developer and lifelong learner.  
+My portfolio highlights selected projects, technical skills, and a glimpse into who I am, both professionally and personally.
+
+---
+
+## 🖥️ Tech Stack
+
+- **Frontend:** Modern HTML5, CSS3, JavaScript (ES6+)
+- **Frameworks & Libraries:** [React](https://react.dev/), [Next.js](https://nextjs.org/) *(if used)*
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/) / [Styled Components](https://styled-components.com/) *(if used)*
+- **Package Manager:** [Bun](https://bun.sh/) 🚀
+- **Deployment:** [Vercel](https://vercel.com/)
+
+---
+
+## ✨ Features
+
+- Clean, responsive design for all devices
+- Interactive project gallery
+- Smooth animations and transitions
+- Easy navigation and accessibility
+- Dark mode support *(if implemented)*
+
+---
+
+## 📸 Project Highlights
+
+<!-- Explore some of my favorite projects right on the website:
+# - **Project 1:** Brief description or tagline.
+# - **Project 2:** Brief description or tagline.
+# - *(Add more as needed!)* -->
+
+---
+
+## 🛠️ Getting Started
+
+Clone the repo and run locally with Bun:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Clone the repository
+git clone https://github.com/bhilbis/portfolio.git
+cd portfolio
+
+# Install dependencies
+bun install
+
+# Start the development server
+bun run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to see the site in action!
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📬 Contact
 
-## Learn More
+- **Email:** [bhilbis123@gmail.com](mailto:bhilbis@gmail.com)
+- **LinkedIn:** [linkedin.com](https://www.linkedin.com/in/flexsy-bilbis-triwibowo-ab833a2b1/)
 
-To learn more about Next.js, take a look at the following resources:
+Let's connect!
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## ⭐️ Contributing
 
-## Deploy on Vercel
+Contributions and feedback are welcome!  
+Feel free to open issues or submit PRs.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📝 License
+
+This project is [MIT Licensed](LICENSE).
+
+---
+
+> Designed & built with ❤️ by bhilbis
