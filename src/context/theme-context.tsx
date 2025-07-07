@@ -16,15 +16,25 @@ export const useThemeStore = create<ThemeState>((set) => ({
     set((state) => {
       const newTheme = state.theme === "light" ? "dark" : "light";
       localStorage.setItem("theme", newTheme);
-      document.documentElement.classList.toggle("dark", newTheme === "dark");
+      applyThemeToDOM(newTheme);
       return { theme: newTheme };
     }),
   setTheme: (theme: Theme) => {
     localStorage.setItem("theme", theme);
-    document.documentElement.classList.toggle("dark", theme === "dark");
+    applyThemeToDOM(theme);
     set({ theme });
   },
 }));
+
+function applyThemeToDOM(theme: Theme) {
+  if (theme === "dark") {
+    document.documentElement.classList.add("dark");
+    document.documentElement.classList.remove("light");
+  } else {
+    document.documentElement.classList.remove("dark");
+    document.documentElement.classList.add("light");
+  }
+}
 
 export function ThemeInitializer() {
   const setTheme = useThemeStore((state) => state.setTheme);

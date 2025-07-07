@@ -47,6 +47,16 @@ const LoadingScreen = () => {
               Preparing your experience...
             </p>
           </motion.div>
+
+          <div className="mt-6 w-full max-w-xs mx-auto">
+            <motion.div
+              className="h-1 bg-primary rounded-full"
+              initial={{ width: 0 }}
+              animate={{ width: "100%" }}
+              transition={{ duration: 2.5, ease: "easeInOut" }}
+            />
+          </div>
+
         </motion.div>
       )}
     </AnimatePresence>

@@ -33,7 +33,6 @@ export function NavBar() {
 
   return (
       <Navbar className="top-0">
-        {/* Desktop Navigation */}
         <NavBody>
           <NavbarLogo />
           <NavItems items={navItems} />
@@ -43,7 +42,6 @@ export function NavBar() {
           </div>
         </NavBody>
 
-        {/* Mobile Navigation */}
         <MobileNav>
           <MobileNavHeader>
             <NavbarLogo />

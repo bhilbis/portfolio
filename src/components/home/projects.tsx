@@ -8,7 +8,7 @@ export function Projects() {
   const containerRef = useRef<HTMLDivElement>(null);
   
   return (
-    <section id="projects" className="py-16 md:py-24 relative overflow-hidden rounded-xl" ref={containerRef}>
+    <section id="projects" className="py-16 md:py-24 relative overflow-hidden rounded-xl min-h-screen" ref={containerRef}>
       {/* Animated Background */}
       <motion.div
         initial={{ y: 0 }}
@@ -48,7 +48,7 @@ export function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, type: "spring", bounce: 0.4 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-20"
         >
           <motion.div
             initial={{ scale: 0.5, opacity: 0 }}

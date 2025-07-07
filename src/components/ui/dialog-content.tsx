@@ -51,7 +51,7 @@ export const ProjectDialogContent = ({ project, index, onClose }: { project: Pro
         <motion.img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover rounded-md"
           whileHover={{ scale: 1.1 }}
           transition={{ duration: 0.6 }}
         />
