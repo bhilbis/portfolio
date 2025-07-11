@@ -94,7 +94,7 @@ export default function MacOSFolderView() {
   return (
     <div className="min-h-[40vh] border rounded-xl shadow-inner bg-gradient-to-b from-gray-200 to-white dark:from-gray-900 dark:to-gray-800 text-gray-900 dark:text-white flex animate-fade-in">
       {/* Sidebar */} 
-      <aside className="w-64 bg-white/70 dark:bg-gray-800/70 backdrop-blur-md border-r border-gray-300 dark:border-gray-700 p-6 hidden md:block">
+      <aside className="w-64 bg-white/70 rounded-s-xl dark:bg-gray-800/70 backdrop-blur-md border-r border-gray-300 dark:border-gray-700 p-6 hidden md:block">
         <ul className="space-y-2 text-sm mt-14 md:mt-0">
           <li>📁 Project</li>
           <li>📁 Archive</li>

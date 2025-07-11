@@ -20,5 +20,5 @@ export default function ClientWrapper({ children }: { children: React.ReactNode 
   }, []);
 
   if (!showContent) return <LoadingScreen />;
-  return <main className="p-4">{children}</main>;
+  return <>{children}</>
 }

@@ -12,7 +12,7 @@ export function Hero() {
   const isDark = theme === 'dark'
 
   return (
-    <section className='relative h-screen w-full flex flex-col lg:flex-row max-w-7xl items-center justify-center overflow-hidden lg:px-6 text-center lg:text-left mt-20 lg:mt-0'>
+    <section id='home' className='relative h-screen w-full flex flex-col lg:flex-row max-w-7xl items-center justify-center overflow-hidden lg:px-6 text-center lg:text-left mt-20 lg:mt-0'>
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}

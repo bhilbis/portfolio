@@ -2,7 +2,9 @@ import React from 'react'
 
 export function About() {
   return (
-    <div>About</div>
+    <div id='about' className='min-h-screen flex justify-center items-center'>
+      About
+    </div>
   )
 }
 

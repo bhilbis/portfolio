@@ -29,7 +29,7 @@ const contactInfo = [
 
 export function FooterContact() {
   return (
-    <footer className="bg-white dark:bg-neutral-950 border-t border-neutral-200 dark:border-neutral-800 py-16">
+    <footer id="contact" className="bg-white dark:bg-neutral-950 border-t border-neutral-200 dark:border-neutral-800 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}

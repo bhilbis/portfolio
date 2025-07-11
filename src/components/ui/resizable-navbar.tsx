@@ -8,6 +8,7 @@ import {
   useMotionValueEvent,
 } from "motion/react";
 import Image from "next/image";
+import Link from "next/link";
 
 import React, { useRef, useState } from "react";
 
@@ -28,7 +29,10 @@ interface NavItemsProps {
     link: string;
   }[];
   className?: string;
-  onItemClick?: () => void;
+  onItemClick?: (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    item: { name: string; link: string }
+  ) => void;
 }
 
 interface MobileNavProps {
@@ -126,7 +130,9 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
       {items.map((item, idx) => (
         <a
           onMouseEnter={() => setHovered(idx)}
-          onClick={onItemClick}
+          onClick={(e) => {
+          onItemClick?.(e, item);
+        }}
           className="relative px-4 py-2 text-neutral-600 dark:text-neutral-300"
           key={`link-${idx}`}
           href={item.link}
@@ -247,21 +253,16 @@ export const NavbarLogo = () => {
 
 export const NavbarButton = ({
   href,
-  as: Tag = "a",
   children,
   className,
   variant = "primary",
   ...props
 }: {
   href?: string;
-  as?: React.ElementType;
   children: React.ReactNode;
   className?: string;
   variant?: "primary" | "secondary" | "dark" | "gradient";
-} & (
-  | React.ComponentPropsWithoutRef<"a">
-  | React.ComponentPropsWithoutRef<"button">
-)) => {
+} & React.HTMLAttributes<HTMLButtonElement>) => {
   const baseStyles =
     "px-4 py-2 rounded-md bg-white button bg-white text-black text-sm font-bold relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center";
 
@@ -273,14 +274,19 @@ export const NavbarButton = ({
     gradient:
       "bg-gradient-to-b from-blue-500 to-blue-700 text-white shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)_inset]",
   };
+  const combinedClass = cn(baseStyles, variantStyles[variant], className);
+
+  if (href) {
+    return (
+      <Link href={href} className={combinedClass} {...props as unknown as React.AnchorHTMLAttributes<HTMLAnchorElement>}>
+        {children}
+      </Link>
+    );
+  }
 
   return (
-    <Tag
-      href={href || undefined}
-      className={cn(baseStyles, variantStyles[variant], className)}
-      {...props}
-    >
+    <button className={combinedClass} {...(props as React.ButtonHTMLAttributes<HTMLButtonElement>)}>
       {children}
-    </Tag>
+    </button>
   );
 };
