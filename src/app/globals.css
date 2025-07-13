@@ -44,6 +44,7 @@
 }
 
 :root {
+  --cursor: url('/cursor.png') 16 16;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -79,6 +80,7 @@
 }
 
 .dark {
+  --cursor: url('/cursor-white.png') 16 16;
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
@@ -119,4 +121,13 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/*
+ * Custom cursor icon:
+ * Circle icon by Icons8 - https://icons8.com/icon/pDHC3ZLp0mpN/circle
+ */
+body {
+  background-color: var(--background);
+  cursor: var(--cursor), auto;
 }

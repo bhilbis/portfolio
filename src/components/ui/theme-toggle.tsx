@@ -42,8 +42,8 @@ export const ThemeToggle = ({className}: ThemeClass) => {
 
   return (
     <>
-      <audio ref={owlSoundRef} src="/backsound/dark/owl-hooting-2.mp3" preload="auto" />
-      <audio ref={chickenSoundRef} src="/backsound/light/chicken.mp3" preload="auto" />
+      {/* <audio ref={owlSoundRef} src="/backsound/dark/owl-hooting-2.mp3" preload="auto" />
+      <audio ref={chickenSoundRef} src="/backsound/light/chicken.mp3" preload="auto" /> */}
 
       <motion.div
         className={cn(
@@ -52,7 +52,7 @@ export const ThemeToggle = ({className}: ThemeClass) => {
         )}
         initial={false}
         animate={{
-          backgroundColor: theme === "dark" ? "#1f2937" : "#e5e7eb", // dark: gray-800, light: gray-200
+          backgroundColor: theme === "dark" ? "#1f2937" : "#e5e7eb",
         }}
         transition={{ duration: 0.4 }}
       >
