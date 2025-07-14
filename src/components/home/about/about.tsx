@@ -6,24 +6,37 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Code2, Palette, Rocket, Heart, Coffee, Music } from 'lucide-react';
+import { AMarquee } from './marquee';
 
 const skills = [
   { name: 'React & Next.js', level: 90 },
   { name: 'TypeScript', level: 85 },
   { name: 'Node.js', level: 80 },
-  { name: 'Python', level: 75 },
-  { name: 'UI/UX Design', level: 70 },
-  { name: 'Database Design', level: 85 }
 ];
 
 const interests = [
   { icon: Code2, title: 'Clean Code', description: 'Writing maintainable and elegant code' },
   { icon: Palette, title: 'Design Systems', description: 'Creating consistent user experiences' },
   { icon: Rocket, title: 'Performance', description: 'Optimizing for speed and efficiency' },
-  { icon: Heart, title: 'Open Source', description: 'Contributing to the community' },
-  { icon: Coffee, title: 'Coffee Brewing', description: 'Perfect espresso is an art form' },
-  { icon: Music, title: 'Music Production', description: 'Creating beats in my spare time' }
 ];
+
+const experience = [
+  {
+    year: '2023',
+    title: 'Full Stack Developer',
+    description: 'Built multiple client projects using React, Node.js, and cloud technologies.'
+  },
+  {
+    year: '2022-2023',
+    title: 'Frontend Developer',
+    description: 'Specialized in creating responsive and accessible user interfaces.'
+  },
+  {
+    year: '2022',
+    title: 'Started Coding Journey',
+    description: 'Began learning web development and fell in love with creating digital solutions.'
+  }
+]
 
 export function About() {
   return (
@@ -57,7 +70,6 @@ export function About() {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Left Column - Personal Info */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -65,7 +77,7 @@ export function About() {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <Card className="overflow-hidden">
+            <Card className="overflow-hidden py-4">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
@@ -91,42 +103,8 @@ export function About() {
                 </div>
               </CardContent>
             </Card>
-
-            {/* Skills Progress */}
-            <Card>
-              <CardHeader>
-                <CardTitle>Technical Skills</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                {skills.map((skill, index) => (
-                  <motion.div
-                    key={skill.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="space-y-2"
-                  >
-                    <div className="flex justify-between text-sm">
-                      <span className="font-medium">{skill.name}</span>
-                      <span className="text-muted-foreground">{skill.level}%</span>
-                    </div>
-                    <div className="h-2 bg-muted rounded-full overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        transition={{ duration: 1, delay: index * 0.1 + 0.5 }}
-                        viewport={{ once: true }}
-                        className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
-                      />
-                    </div>
-                  </motion.div>
-                ))}
-              </CardContent>
-            </Card>
           </motion.div>
 
-          {/* Right Column - Interests & Experience */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -172,28 +150,7 @@ export function About() {
               
               <TabsContent value="journey" className="space-y-4">
                 <div className="space-y-6">
-                  {[
-                    {
-                      year: '2024',
-                      title: 'Senior Full Stack Developer',
-                      description: 'Leading development of scalable web applications with modern tech stack.'
-                    },
-                    {
-                      year: '2023',
-                      title: 'Full Stack Developer',
-                      description: 'Built multiple client projects using React, Node.js, and cloud technologies.'
-                    },
-                    {
-                      year: '2022',
-                      title: 'Frontend Developer',
-                      description: 'Specialized in creating responsive and accessible user interfaces.'
-                    },
-                    {
-                      year: '2021',
-                      title: 'Started Coding Journey',
-                      description: 'Began learning web development and fell in love with creating digital solutions.'
-                    }
-                  ].map((item, index) => (
+                  {experience.map((item, index) => (
                     <motion.div
                       key={item.year}
                       initial={{ opacity: 0, x: -20 }}
@@ -217,6 +174,8 @@ export function About() {
             </Tabs>
           </motion.div>
         </div>
+
+        <AMarquee />
       </div>
     </section>
   );

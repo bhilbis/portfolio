@@ -6,6 +6,7 @@ import { ThemeInitializer } from "@/context/theme-context";
 import CursorEffect from "@/components/ui/cursor-effect";
 import ClientWrapper from "@/components/ui/ui-wrapper";
 import { LenisProvider } from "@/lib/hooks/use-lenis-scroll";
+import { ClientOnly } from "@/lib/isClient";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -31,9 +32,11 @@ export default function RootLayout({
         <NavBar />
         <CursorEffect />
         <LenisProvider >
-          <ClientWrapper>
-            {children}
-          </ClientWrapper>
+          <ClientOnly>
+            <ClientWrapper>
+              {children}
+            </ClientWrapper>
+          </ClientOnly>
         </LenisProvider>
       </body>
     </html>

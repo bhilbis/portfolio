@@ -1,6 +1,6 @@
 "use client";
-import { About } from "@/components/home/about";
-import { FooterContact } from "@/components/home/contact";
+import { About } from "@/components/home/about/about";
+// import { FooterContact } from "@/components/home/contact";
 import { Hero } from "@/components/home/hero";
 import { Projects } from "@/components/home/projects";
 import Copyright from "@/components/ui/cr";
@@ -11,7 +11,7 @@ export default function Home() {
       <Hero />
       <About />
       <Projects />
-      <FooterContact />
+      {/* <FooterContact /> */}
       <Copyright />
     </div>
   );
