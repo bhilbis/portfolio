@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import LoadingScreen from "@/context/loading-screen";
+import { ClientOnly } from "@/lib/isClient";
 
 export default function ClientWrapper({ children }: { children: React.ReactNode }) {
   const [showContent, setShowContent] = useState(false);
@@ -20,5 +21,5 @@ export default function ClientWrapper({ children }: { children: React.ReactNode 
   }, []);
 
   if (!showContent) return <LoadingScreen />;
-  return <>{children}</>
+  return <ClientOnly>{children}</ClientOnly>
 }

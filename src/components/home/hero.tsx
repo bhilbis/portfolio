@@ -1,27 +1,32 @@
 "use client"
-
 import React from 'react'
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Sphere, MeshDistortMaterial, Environment, Float } from '@react-three/drei';
+import { OrbitControls, Sphere, MeshDistortMaterial, Float } from '@react-three/drei';
 import { motion } from 'framer-motion';
 import { Button } from '../ui/button';
 import { useThemeStore } from '@/context/theme-context';
 import { ArrowDown } from 'lucide-react';
+import { TypingAnimation } from '../magicui/typing-animation';
 
 function Scene({ isDark }: { isDark: boolean }) {
   return (
     <>
-      <Environment preset="city" />
-      <ambientLight intensity={isDark ? 0.3 : 0.5} />
+      <ambientLight intensity={isDark ? 0.3 : 0.6} />
+      <spotLight
+        position={[15, 20, 5]}
+        angle={0.3}
+        penumbra={1}
+        intensity={isDark ? 1 : 0.3}
+      />
       <directionalLight 
         position={[10, 10, 5]} 
-        intensity={isDark ? 0.8 : 1.2}
-        color={isDark ? "#ffffff" : "#ffd700"}
+        intensity={isDark ? 0.8 : 0.3}
+        color={isDark ? "#8b5cf6" : "#facc15"}
       />
       <pointLight 
         position={[-10, -10, -10]} 
-        intensity={isDark ? 0.5 : 0.3}
-        color={isDark ? "#4f46e5" : "#06b6d4"}
+        intensity={isDark ? 0.5 : 0.2}
+        color={isDark ? "#38bdf8" : "#60a5fa"}
       />
       
       <Float
@@ -29,16 +34,17 @@ function Scene({ isDark }: { isDark: boolean }) {
         rotationIntensity={0.5}
         floatIntensity={0.5}
       >
-        <Sphere args={[1, 64, 64]} scale={1.4}>
+        <Sphere args={[1.2, 64, 64]} scale={1.4}>
           <MeshDistortMaterial 
-            color={isDark ? '#6366f1' : '#3b82f6'}
-            attach="material"
+            color={isDark ? '#818cf8' : '#3b82f6'}
+            clearcoat={1}
+            clearcoatRoughness={0.1}
             distort={0.3}
             speed={1.5}
             roughness={0.2}
             metalness={0.8}
-            emissive={isDark ? '#1e1b4b' : '#dbeafe'}
-            emissiveIntensity={isDark ? 0.2 : 0.1}
+            emissive={isDark ? '#1e1b4b' : '#93c5fd'}
+            emissiveIntensity={isDark ? 0.15 : 0.05}
           />
         </Sphere>
       </Float>
@@ -52,12 +58,12 @@ function Scene({ isDark }: { isDark: boolean }) {
       >
         <Sphere args={[0.2, 32, 32]}>
           <MeshDistortMaterial 
-            color={isDark ? '#8b5cf6' : '#06b6d4'}
+            color={isDark ? '#ec4899' : '#0ea5e9'}
             distort={0.5}
             speed={2}
             roughness={0.1}
             metalness={0.9}
-            emissive={isDark ? '#312e81' : '#cffafe'}
+            emissive={isDark ? '#312e81' : '#bae6fd'}
             emissiveIntensity={0.3}
           />
         </Sphere>
@@ -71,12 +77,12 @@ function Scene({ isDark }: { isDark: boolean }) {
       >
         <Sphere args={[0.15, 32, 32]}>
           <MeshDistortMaterial 
-            color={isDark ? '#ec4899' : '#f59e0b'}
+            color={isDark ? '#10b981' : '#f59e0b'}
             distort={0.4}
             speed={1.8}
             roughness={0.1}
             metalness={0.7}
-            emissive={isDark ? '#7c2d12' : '#fef3c7'}
+            emissive={isDark ? '#064e3b' : '#fef3c7'}
             emissiveIntensity={0.2}
           />
         </Sphere>
@@ -106,7 +112,7 @@ export function Hero() {
   return (
     <section id='home' className='relative h-screen w-full flex flex-col lg:flex-row max-w-7xl items-center justify-center overflow-hidden px-4 lg:px-6 text-center lg:text-left lg:mt-0'>
       
-      <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/80 to-background/95 z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/80 to-background/95 dark:from-background/90 dark:via-background/70 dark:to-background/95 z-[1]" />
 
       <motion.div
         initial={{ opacity: 0, y: 50 }}
@@ -114,7 +120,6 @@ export function Hero() {
         transition={{ duration: 1, ease: "easeOut" }}
         className='relative z-10 max-w-2xl lg:max-w-xl space-y-6'
       >
-        {/* Greeting */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
@@ -126,7 +131,6 @@ export function Hero() {
           </span>
         </motion.div>
 
-        {/* Main heading */}
         <motion.h1 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -138,23 +142,25 @@ export function Hero() {
           </span>
         </motion.h1>
 
-        {/* Subtitle */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
           className="space-y-2"
         >
-          <p className='text-xl md:text-2xl font-semibold text-primary'>
-            Full Stack Developer
-          </p>
+          <TypingAnimation 
+            sentences={["Full Stack Developer", "Tech Enthusiast"]}
+            typingSpeed={100}
+            deletingSpeed={40}
+            delayBetween={2000}
+            className='text-xl md:text-2xl font-semibold text-primary'
+          />
           <p className='text-base md:text-lg text-muted-foreground max-w-lg mx-auto lg:mx-0 leading-relaxed'>
             Crafting digital experiences with modern technologies and creative solutions. 
             Passionate about clean code and innovative design.
           </p>
         </motion.div>
 
-        {/* Action buttons */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -176,7 +182,7 @@ export function Hero() {
             onClick={scrollToAbout}
             variant="outline" 
             size="lg"
-            className='hidden lg:block px-8 py-3 rounded-full border-2 hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:-translate-y-1'
+            className='hidden lg:flex px-8 py-3 lg:items-center rounded-full border-2 hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:-translate-y-1'
           >
             About Me
           </Button>
@@ -190,9 +196,10 @@ export function Hero() {
         className='relative w-full h-[400px] md:h-[500px] lg:h-[600px] lg:flex-1 z-0'
       >
         <Canvas 
-          camera={{ position: [0, 0, 5], fov: 45 }}
+          camera={{ position: [0, 0, 5], fov: 55 }}
           className="w-full h-full"
-        >
+        > 
+          <fog attach="fog" args={[isDark ? '#0f0f1f' : '#f0f0f0', 5, 15]} />
           <OrbitControls 
             enableZoom={false} 
             enablePan={false}
@@ -204,7 +211,6 @@ export function Hero() {
           <Scene isDark={isDark} />
         </Canvas>
         
-        {/* Decorative elements */}
         <div className="absolute inset-0 pointer-events-none">
           <motion.div
             animate={{ 

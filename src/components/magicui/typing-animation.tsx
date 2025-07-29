@@ -5,19 +5,21 @@ import { motion, MotionProps } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
 interface TypingAnimationProps extends MotionProps {
-  children: string;
+  sentences: string[];
   className?: string;
-  duration?: number;
-  delay?: number;
+  typingSpeed?: number;
+  deletingSpeed?: number;
+  delayBetween?: number;
   as?: React.ElementType;
   startOnView?: boolean;
 }
 
 export function TypingAnimation({
-  children,
+  sentences,
   className,
-  duration = 100,
-  delay = 0,
+  typingSpeed = 100,
+  deletingSpeed = 50,
+  delayBetween = 1500,
   as: Component = "div",
   startOnView = false,
   ...props
@@ -27,23 +29,21 @@ export function TypingAnimation({
   });
 
   const [displayedText, setDisplayedText] = useState<string>("");
+  const [sentenceIndex, setSentenceIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
   const [started, setStarted] = useState(false);
   const elementRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     if (!startOnView) {
-      const startTimeout = setTimeout(() => {
-        setStarted(true);
-      }, delay);
-      return () => clearTimeout(startTimeout);
+      setStarted(true)
+      return
     }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setTimeout(() => {
-            setStarted(true);
-          }, delay);
+          setStarted(true);
           observer.disconnect();
         }
       },
@@ -55,25 +55,39 @@ export function TypingAnimation({
     }
 
     return () => observer.disconnect();
-  }, [delay, startOnView]);
+  }, [startOnView]);
 
   useEffect(() => {
     if (!started) return;
 
-    let i = 0;
-    const typingEffect = setInterval(() => {
-      if (i < children.length) {
-        setDisplayedText(children.substring(0, i + 1));
-        i++;
+    const currentSentence = sentences[sentenceIndex % sentences.length]
+
+    let timer: NodeJS.Timeout;
+
+    if (isDeleting) {
+      timer = setTimeout(() => {
+        setDisplayedText((prev) => prev.slice(0, -1));
+        if (displayedText === "") {
+          setIsDeleting(false);
+          setSentenceIndex((prev) => (prev + 1) % sentences.length);
+        }
+      }, deletingSpeed);
+    } else {
+      if (displayedText === currentSentence) {
+        timer = setTimeout(() => {
+          setIsDeleting(true);
+        }, delayBetween);
       } else {
-        clearInterval(typingEffect);
+        timer = setTimeout(() => {
+          setDisplayedText(currentSentence.slice(0, displayedText.length + 1));
+        }, typingSpeed)
       }
-    }, duration);
+    }
 
     return () => {
-      clearInterval(typingEffect);
+      clearTimeout(timer);
     };
-  }, [children, duration, started]);
+  }, [displayedText, isDeleting, sentenceIndex, sentences, started, typingSpeed, deletingSpeed, delayBetween]);
 
   return (
     <MotionComponent
@@ -85,6 +99,7 @@ export function TypingAnimation({
       {...props}
     >
       {displayedText}
+      <span className="animate-pulse">|</span>
     </MotionComponent>
   );
 }

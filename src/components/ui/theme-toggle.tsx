@@ -56,7 +56,6 @@ export const ThemeToggle = ({className}: ThemeClass) => {
         }}
         transition={{ duration: 0.4 }}
       >
-        {/* Gradient overlay */}
         <motion.div
           className="absolute inset-0 rounded-full z-0"
           initial={false}
@@ -69,7 +68,6 @@ export const ThemeToggle = ({className}: ThemeClass) => {
           transition={{ duration: 0.3 }}
         />
 
-        {/* Toggle Button */}
         <motion.button
           onClick={handleToggle}
           className="relative z-10 h-6 w-6 bg-white rounded-full shadow-md flex items-center justify-center"
@@ -86,6 +84,7 @@ export const ThemeToggle = ({className}: ThemeClass) => {
               scale: theme === "dark" ? 1.1 : 1,
             }}
             transition={{ duration: 0.3, type: "spring", stiffness: 300, damping: 20 }}
+            className="hover:cursor-pointer"
           >
             {theme === "dark" ? 
               <div className="rotate-180 transition-transform duration-300">🦉</div> : "🌞"}

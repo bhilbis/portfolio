@@ -18,10 +18,6 @@ import Link from "next/link";
 export function NavBar() {
   const navItems = [
     {
-      name: "Home",
-      link: "#home",
-    },
-    {
       name: "About",
       link: "#about",
     },

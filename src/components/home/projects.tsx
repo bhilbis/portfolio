@@ -1,16 +1,14 @@
 "use client";
-
-import { motion } from 'framer-motion';
 import { useRef } from 'react';
-import FolderCard  from '../ui/folder-card';
+// import FolderCard  from '../ui/folder-card';
+import ProjectsSection from '../ui/folder-card';
 
 export function Projects() {
   const containerRef = useRef<HTMLDivElement>(null);
   
   return (
     <section id="projects" className="py-16 md:py-24 relative overflow-hidden rounded-xl min-h-screen" ref={containerRef}>
-      {/* Animated Background */}
-      <motion.div
+      {/* <motion.div
         initial={{ y: 0 }}
         animate={{ y: [0, 100, -100, 0] }}
         transition={{
@@ -40,10 +38,10 @@ export function Projects() {
           transition={{ duration: 28, repeat: Infinity, ease: "easeInOut" }}
           className="absolute bottom-1/2 left-1/4 w-40 h-40 bg-pink-400/30 dark:bg-pink-500/20 rounded-full blur-3xl"
         />
-      </motion.div>
+      </motion.div> */}
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, type: "spring", bounce: 0.4 }}
@@ -78,12 +76,11 @@ export function Projects() {
           >
             Showcase proyek inovatif yang menunjukkan keunggulan teknis dan solusi kreatif.
           </motion.p>
-        </motion.div>
+        </motion.div> */}
 
-        {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-10"> */}
-          <FolderCard />
-        {/* </div> */}
-
+        <ProjectsSection />
+        
+        {/* Ini isi Card gakepakai */}
         {/* <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
