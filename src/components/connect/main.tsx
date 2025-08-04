@@ -1,5 +1,5 @@
 "use client";
-import { Instagram, Linkedin, Github, MoveUpRight, MapPin, Sparkles } from "lucide-react";
+import { Instagram, Linkedin, Github, MoveUpRight, MapPin, Sparkles, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { useThemeStore } from "@/context/theme-context";
@@ -187,6 +187,20 @@ const ConnectWithMe = () => {
                 delay={0.9}
                 color="from-gray-600 to-gray-800 dark:from-gray-400 dark:to-gray-600"
               />
+            </div>
+
+            <div className="absolute bottom-4 right-4 text-xs text-gray-500 dark:text-gray-400 z-20">
+              <a
+                href="https://flexsybilbis.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1"
+              >
+                Another  
+                <motion.span>
+                  <ArrowRight width={16}/>
+                </motion.span>
+              </a>
             </div>
 
             <motion.div

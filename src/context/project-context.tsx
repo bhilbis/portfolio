@@ -2,7 +2,7 @@
 "use client"
 import React, { createContext, useContext, useState, useEffect, useMemo, ReactNode } from 'react';
 import { useMediaQuery } from '@uidotdev/usehooks';
-import { allProjects, techStacks } from '@/lib/data';
+import { allProjects, categories, techStacks } from '@/lib/data';
 
 type ProjectContextType = {
   activeProject: number;
@@ -17,6 +17,7 @@ type ProjectContextType = {
   setIsFilterMenuOpen: (isOpen: boolean) => void;
   isMobile: boolean;
   filteredProjects: any[];
+  availableCategories: any[];
   availableTechs: any[];
   currentProject: any;
 };
@@ -41,6 +42,17 @@ export const ProjectProvider = ({ children }: { children: ReactNode }) => {
       return categoryMatch && techMatch;
     });
   }, [selectedCategory, selectedTech]);
+
+  const availableCategories = useMemo(() => {
+    const categorySet = new Set<string>();
+    allProjects.forEach((project) => {
+      categorySet.add(project.category);
+    });
+
+    return categories.filter((cat) =>
+      cat.id === 'all' || categorySet.has(cat.id)
+    );
+}, []);
 
   const availableTechs = useMemo(() => {
     const validTechSet = new Set<string>();
@@ -111,6 +123,7 @@ export const ProjectProvider = ({ children }: { children: ReactNode }) => {
     setIsFilterMenuOpen,
     isMobile,
     filteredProjects,
+    availableCategories,
     availableTechs,
     currentProject
   };

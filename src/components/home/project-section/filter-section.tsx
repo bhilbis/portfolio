@@ -1,8 +1,7 @@
 "use client"
 import React from 'react';
 import { cn } from '@/lib/utils';
-import { useProjectContext } from '../../../context/project-context';
-import { categories } from '@/lib/data';
+import { useProjectContext } from '@/context/project-context';
 
 const FilterSection = () => {
   const { 
@@ -11,6 +10,7 @@ const FilterSection = () => {
     setSelectedCategory, 
     selectedTech, 
     setSelectedTech,
+    availableCategories,
     availableTechs,
     isMobile,
     setIsFilterMenuOpen
@@ -30,7 +30,7 @@ const FilterSection = () => {
             Platform:
           </span>
           <div className="flex flex-wrap gap-2 sm:gap-3">
-            {categories.map((category) => {
+            {availableCategories.map((category) => {
               const IconComponent = category.icon;
               return (
                 <button
