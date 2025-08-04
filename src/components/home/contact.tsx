@@ -1,101 +1,84 @@
-// "use client";
+import { Heart, MessageCircle, Sparkles } from "lucide-react";
 
-// import { motion } from "framer-motion";
-// import { Mail, Phone, MapPin } from "lucide-react";
+export function Contact() {
+    const handleChatClick = () => {
+        window.open("https://wa.me/62859183953992?text=Halo%20,%20saya%20ingin%20diskusi%20lebih%20lanjut%20setelah%20melihat%20portfolio%20Anda.", "_blank");
+    };
 
-// const contactInfo = [
-//   {
-//     icon: Mail,
-//     label: "Email",
-//     value: "bhilbis123@gmail.com",
-//     href: "mailto:bhilbis123@gmail.com",
-//     color: "from-blue-400 to-cyan-400",
-//   },
-//   {
-//     icon: Phone,
-//     label: "Phone",
-//     value: "+62 8591 8395 3992",
-//     href: "https://wa.me/62859183953992?text=Halo%20[Nama%20Kamu],%20saya%20ingin%20diskusi%20lebih%20lanjut%20setelah%20melihat%20portfolio%20Anda.",
-//     color: "from-green-400 to-emerald-400",
-//   },
-//   {
-//     icon: MapPin,
-//     label: "Location",
-//     value: "Pasuruan, Jawa Timur",
-//     href: "#",
-//     color: "from-purple-400 to-pink-400",
-//   },
-// ];
+    return (
+        <div className="w-full min-h-screen flex items-center justify-center relative overflow-hidden transition-all">
 
-// export function FooterContact() {
-//   return (
-//     <footer id="contact" className="bg-white dark:bg-neutral-950 border-t border-neutral-200 dark:border-neutral-800 py-16">
-//       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-//         <motion.div
-//           initial={{ opacity: 0, y: 50 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           transition={{ duration: 0.8, type: "spring", bounce: 0.3 }}
-//           viewport={{ once: true }}
-//           className="text-center mb-12"
-//         >
-//           <motion.div
-//             initial={{ scale: 0.5, opacity: 0 }}
-//             whileInView={{ scale: 1, opacity: 1 }}
-//             transition={{ duration: 0.8, delay: 0.2 }}
-//             viewport={{ once: true }}
-//             className="inline-block mb-4"
-//           >
-//             <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 dark:from-blue-100 dark:to-purple-200 bg-clip-text text-transparent">
-//               Get In Touch
-//             </h2>
-//             <motion.div
-//               initial={{ scaleX: 0 }}
-//               whileInView={{ scaleX: 1 }}
-//               transition={{ duration: 1.2, delay: 0.8 }}
-//               viewport={{ once: true }}
-//               className="h-1 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-full mt-2 origin-left"
-//             />
-//           </motion.div>
-//           <motion.p
-//             initial={{ opacity: 0, y: 30 }}
-//             whileInView={{ opacity: 1, y: 0 }}
-//             transition={{ duration: 0.8, delay: 0.5 }}
-//             viewport={{ once: true }}
-//             className="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto"
-//           >
-//             Let’s connect and create something great together.
-//           </motion.p>
-//         </motion.div>
+            {/* Floating Particles */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                {[...Array(6)].map((_, i) => (
+                    <div
+                        key={i}
+                        className="absolute w-2 h-2 rounded-full animate-bounce bg-blue-500/30 dark:bg-blue-400/40"
+                        style={{
+                            left: `${20 + i * 15}%`,
+                            top: `${20 + (i % 3) * 20}%`,
+                            animationDelay: `${i * 0.5}s`,
+                            animationDuration: `${2 + i * 0.3}s`
+                        }}
+                    />
+                ))}
+            </div>
 
-//         <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
-//           {contactInfo.map((info, i) => (
-//             <motion.button
-//               key={info.label}
-//               onClick={() => window.open(info.href, "_blank")}
-//               rel="noopener noreferrer"
-//               initial={{ opacity: 0, y: 20 }}
-//               whileInView={{ opacity: 1, y: 0 }}
-//               transition={{ duration: 0.5, delay: i * 0.1 }}
-//               viewport={{ once: true }}
-//               className="flex items-center space-x-4 p-4 rounded-xl hover:shadow-lg transition dark:hover:bg-white/5 hover:bg-black/5 hover:translate-y-[-5px] group text-left w-full cursor-pointer"
-//             >
-//               <div
-//                 className={`w-12 h-12 bg-gradient-to-r ${info.color} rounded-xl flex items-center justify-center`}
-//               >
-//                 <info.icon className="text-white w-6 h-6" />
-//               </div>
-//               <div>
-//                 <p className="text-sm text-neutral-500 dark:text-neutral-400">
-//                   {info.label}
-//                 </p>
-//                 <p className="text-base font-medium text-neutral-800 dark:text-white">
-//                   {info.value}
-//                 </p>
-//               </div>
-//             </motion.button>
-//           ))}
-//         </div>
-//       </div>
-//     </footer>
-//   );
-// }
+            <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
+                <div className="mb-12">
+                    <div className="inline-flex items-center gap-2 px-6 py-3 backdrop-blur-lg rounded-full border shadow-lg mb-8 transition-all duration-300 
+                        bg-white/80 border-white/20 text-gray-700 dark:bg-gray-800/80 dark:border-gray-700/20 dark:text-gray-">
+                        <Heart className="w-5 h-5 text-red-500 animate-pulse" />
+                        <span className="font-medium">Thank You</span>
+                    </div>
+
+                    <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight transition-all duration-300 
+                        bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent
+                        dark:from-blue-400 dark:via-purple-400 dark:to-cyan-400 ">
+                        Thanks for
+                        <br />
+                        <span className="relative inline-block">
+                            Visiting
+                            <Sparkles className="absolute -top-2 -right-8 w-8 h-8 text-yellow-400 animate-spin" style={{ animationDuration: '3s' }} />
+                        </span>
+                    </h1>
+
+                    <p className="text-xl md:text-2xl mb-4 font-light transition-colors duration-300 dark:text-gray-300 text-gray-600">
+                        Hope you enjoyed exploring my work!
+                    </p>
+                    
+                    <p className="text-lg mb-12 max-w-2xl mx-auto transition-colors duration-300 text-gray-500 dark:text-gray-400">
+                        Ready to bring your ideas to life? Let&apos;s start a conversation and create something amazing together.
+                    </p>
+                </div>
+
+                {/* Chat Button */}
+                <div className="relative group">
+                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 rounded-2xl blur opacity-70 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+                    
+                    <button
+                        onClick={handleChatClick}
+                        className="relative hover:cursor-pointer flex items-center bg-white dark:bg-gray-900 gap-4 px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl mx-auto"
+                    >
+                        <div className="flex items-center gap-3">
+                            <div className="relative">
+                                <MessageCircle className="w-6 h-6 text-green-500" />
+                                <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full animate-ping"></div>
+                                <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full"></div>
+                            </div>
+                            <span className="transition-colors duration-300 bg-gradient-to-r from-gray-700 to-gray-900 dark:from-gray-100 dark:to-gray-300 bg-clip-text text-transparent">
+                                Let&apos;s Chat on WhatsApp
+                            </span>
+                        </div>
+                        
+                        <div className="w-0 group-hover:w-6 overflow-hidden transition-all duration-300">
+                            <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center">
+                                <span className="text-white text-sm">→</span>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    )
+}

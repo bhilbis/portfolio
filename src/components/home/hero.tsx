@@ -1,99 +1,11 @@
 "use client"
 import React from 'react'
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Sphere, MeshDistortMaterial, Float } from '@react-three/drei';
 import { motion } from 'framer-motion';
 import { Button } from '../ui/button';
-import { useThemeStore } from '@/context/theme-context';
 import { ArrowDown } from 'lucide-react';
 import { TypingAnimation } from '../magicui/typing-animation';
 
-function Scene({ isDark }: { isDark: boolean }) {
-  return (
-    <>
-      <ambientLight intensity={isDark ? 0.3 : 0.6} />
-      <spotLight
-        position={[15, 20, 5]}
-        angle={0.3}
-        penumbra={1}
-        intensity={isDark ? 1 : 0.3}
-      />
-      <directionalLight 
-        position={[10, 10, 5]} 
-        intensity={isDark ? 0.8 : 0.3}
-        color={isDark ? "#8b5cf6" : "#facc15"}
-      />
-      <pointLight 
-        position={[-10, -10, -10]} 
-        intensity={isDark ? 0.5 : 0.2}
-        color={isDark ? "#38bdf8" : "#60a5fa"}
-      />
-      
-      <Float
-        speed={1.5}
-        rotationIntensity={0.5}
-        floatIntensity={0.5}
-      >
-        <Sphere args={[1.2, 64, 64]} scale={1.4}>
-          <MeshDistortMaterial 
-            color={isDark ? '#818cf8' : '#3b82f6'}
-            clearcoat={1}
-            clearcoatRoughness={0.1}
-            distort={0.3}
-            speed={1.5}
-            roughness={0.2}
-            metalness={0.8}
-            emissive={isDark ? '#1e1b4b' : '#93c5fd'}
-            emissiveIntensity={isDark ? 0.15 : 0.05}
-          />
-        </Sphere>
-      </Float>
-      
-      {/* Additional floating elements */}
-      <Float
-        speed={2}
-        rotationIntensity={1}
-        floatIntensity={1}
-        position={[2, 1, -2]}
-      >
-        <Sphere args={[0.2, 32, 32]}>
-          <MeshDistortMaterial 
-            color={isDark ? '#ec4899' : '#0ea5e9'}
-            distort={0.5}
-            speed={2}
-            roughness={0.1}
-            metalness={0.9}
-            emissive={isDark ? '#312e81' : '#bae6fd'}
-            emissiveIntensity={0.3}
-          />
-        </Sphere>
-      </Float>
-      
-      <Float
-        speed={1.8}
-        rotationIntensity={0.8}
-        floatIntensity={0.8}
-        position={[-2, -1, -1]}
-      >
-        <Sphere args={[0.15, 32, 32]}>
-          <MeshDistortMaterial 
-            color={isDark ? '#10b981' : '#f59e0b'}
-            distort={0.4}
-            speed={1.8}
-            roughness={0.1}
-            metalness={0.7}
-            emissive={isDark ? '#064e3b' : '#fef3c7'}
-            emissiveIntensity={0.2}
-          />
-        </Sphere>
-      </Float>
-    </>
-  )
-}
-
 export function Hero() {
-  const theme = useThemeStore((state: { theme: string }) => state.theme)
-  const isDark = theme === 'dark'
 
   const scrollToProjects = () => {
     const element = document.querySelector('#projects');
@@ -118,7 +30,7 @@ export function Hero() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className='relative z-10 max-w-2xl lg:max-w-xl space-y-6'
+        className='relative z-10 max-w-2xl lg:max-w-xl space-y-6 text-center justify-center'
       >
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -146,16 +58,16 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="space-y-2"
+          className="flex flex-col gap-2 justify-center items-center"
         >
           <TypingAnimation 
-            sentences={["Full Stack Developer", "Tech Enthusiast"]}
+            sentences={["Web Developer", "Tech Enthusiast"]}
             typingSpeed={100}
             deletingSpeed={40}
             delayBetween={2000}
             className='text-xl md:text-2xl font-semibold text-primary'
           />
-          <p className='text-base md:text-lg text-muted-foreground max-w-lg mx-auto lg:mx-0 leading-relaxed'>
+          <p className='text-base md:text-lg text-muted-foreground max-w-lg leading-relaxed text-center'>
             Crafting digital experiences with modern technologies and creative solutions. 
             Passionate about clean code and innovative design.
           </p>
@@ -165,7 +77,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className='flex flex-col sm:flex-row gap-4 items-center justify-center lg:justify-start pt-4'
+          className='flex flex-col sm:flex-row gap-4 items-center justify-center pt-4'
         >
           <Button 
             onClick={scrollToProjects}
@@ -187,56 +99,9 @@ export function Hero() {
             About Me
           </Button>
         </motion.div>
-      </motion.div>
-      
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.2, delay: 0.5 }}
-        className='relative w-full h-[400px] md:h-[500px] lg:h-[600px] lg:flex-1 z-0'
-      >
-        <Canvas 
-          camera={{ position: [0, 0, 5], fov: 55 }}
-          className="w-full h-full"
-        > 
-          <fog attach="fog" args={[isDark ? '#0f0f1f' : '#f0f0f0', 5, 15]} />
-          <OrbitControls 
-            enableZoom={false} 
-            enablePan={false}
-            autoRotate 
-            autoRotateSpeed={0.8}
-            maxPolarAngle={Math.PI / 2}
-            minPolarAngle={Math.PI / 2}
-          />
-          <Scene isDark={isDark} />
-        </Canvas>
         
-        <div className="absolute inset-0 pointer-events-none">
-          <motion.div
-            animate={{ 
-              rotate: 360,
-              scale: [1, 1.1, 1]
-            }}
-            transition={{ 
-              rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-              scale: { duration: 4, repeat: Infinity, ease: "easeInOut" }
-            }}
-            className="absolute top-1/4 right-1/4 w-2 h-2 bg-primary rounded-full opacity-60"
-          />
-          <motion.div
-            animate={{ 
-              rotate: -360,
-              scale: [1, 1.2, 1]
-            }}
-            transition={{ 
-              rotate: { duration: 25, repeat: Infinity, ease: "linear" },
-              scale: { duration: 5, repeat: Infinity, ease: "easeInOut" }
-            }}
-            className="absolute bottom-1/3 left-1/4 w-1 h-1 bg-secondary rounded-full opacity-40"
-          />
-        </div>
       </motion.div>
-
+    
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

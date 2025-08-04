@@ -5,38 +5,23 @@ import { motion }  from 'motion/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Code2, Palette, Rocket, CoffeeIcon, Zap } from 'lucide-react';
+import { Code2, CoffeeIcon, Zap, SquareUser } from 'lucide-react';
+import { experience, interests } from '@/lib/data';
 // import { AMarquee } from './marquee';
 
-const interests = [
-  { icon: Code2, title: 'Clean Code', description: 'Writing maintainable and elegant code' },
-  { icon: Palette, title: 'Design Systems', description: 'Creating consistent user experiences' },
-  { icon: Rocket, title: 'Performance', description: 'Optimizing for speed and efficiency' },
-];
 
-const experience = [
-  {
-    year: 'Until Now',
-    title: 'Full Stack Developer',
-    description: 'Built multiple client projects using React, Node.js, and cloud technologies.'
-  },
-  {
-    year: '2022-2023',
-    title: 'Frontend Developer',
-    description: 'Specialized in creating responsive and accessible user interfaces.'
-  },
-  {
-    year: '2022',
-    title: 'Started Coding Journey',
-    description: 'Began learning web development and fell in love with creating digital solutions.'
-  }
-]
 
 export function About() {
   return (
-    <section id='about' className='min-h-screen flex justify-center items-center py-20'>
+    <section id='about' className='min-h-screen flex justify-center items-center'>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className='mb-12'>
+          <div className='w-full flex justify-center items-center'>
+            <div className="flex items-center text-center gap-2 px-4 py-2 bg-black/5 dark:bg-white/5 backdrop-blur-sm rounded-full border border-black/10 dark:border-white/10 mb-4 sm:mb-6">
+              <SquareUser className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
+              <span className="text-black/80 dark:text-white/80 text-sm font-medium">Personal</span>
+            </div>
+          </div>
           <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}

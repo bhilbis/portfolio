@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "@/app/globals.css";
+import NavDown from "@/components/connect/nav-down";
 
 export const metadata: Metadata = {
   title: "Connect With Me",
@@ -11,5 +12,10 @@ export default function ConnectLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <>{children}</>
+  return (
+    <div>
+      <NavDown/>
+      {children}
+    </div>
+  )
 }

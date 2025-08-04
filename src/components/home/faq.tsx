@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Minus, Plus } from 'lucide-react';
+import { Minus, Plus, TableOfContents } from 'lucide-react';
 
 const faqItems = [
   {
@@ -42,6 +42,12 @@ const faqItems = [
 export function FAQ() {
   return (
     <section id="faq" className="py-20 max-w-7xl w-full">
+      <div className='w-full flex justify-center items-center'>
+          <div className="flex items-center text-center gap-2 px-4 py-2 bg-black/5 dark:bg-white/5  backdrop-blur-sm rounded-full border border-black/10 dark:border-white/10  mb-4 sm:mb-6">
+              <TableOfContents className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
+              <span className="text-black/80 dark:text-white/80 text-sm font-medium">FAQ</span>
+          </div>
+      </div>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -70,7 +76,7 @@ export function FAQ() {
                 <span>
                     {item.question}
                 </span>
-                <div className="relative w-6 h-6 flex items-center justify-center">
+                <div className="relative w-6 h-6 flex items-center justify-center hover:cursor-pointer">
                     <Plus className="h-5 w-5 absolute transition-transform duration-300 group-data-[state=open]:rotate-90 group-data-[state=open]:opacity-0" />
                     <Minus className="h-5 w-5 absolute transition-transform duration-300 group-data-[state=open]:rotate-0 group-data-[state=closed]:-rotate-90 group-data-[state=closed]:opacity-0" />
                 </div>

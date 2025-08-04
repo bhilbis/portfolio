@@ -6,7 +6,6 @@ import { ThemeInitializer } from "@/context/theme-context";
 import CursorEffect from "@/components/ui/cursor-effect";
 import ClientWrapper from "@/components/ui/ui-wrapper";
 import { LenisProvider } from "@/lib/hooks/use-lenis-scroll";
-import { SmoothCursor } from "@/components/ui/smooth-cursor";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -26,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`antialiased ${inter.variable} transition-colors `}
+        className={`antialiased ${inter.variable} transition-colors`}
       >
         <ThemeInitializer />
         <NavBar />
@@ -35,7 +34,6 @@ export default function RootLayout({
             <ClientWrapper>
               {children}
             </ClientWrapper>
-            <SmoothCursor />
         </LenisProvider>
       </body>
     </html>
