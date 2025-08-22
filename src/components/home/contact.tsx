@@ -6,7 +6,7 @@ export function Contact() {
     };
 
     return (
-        <div className="w-full min-h-screen flex items-center justify-center relative overflow-hidden transition-all">
+        <div id="contact" className="w-full min-h-screen flex items-center justify-center relative overflow-hidden transition-all">
 
             {/* Floating Particles */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">

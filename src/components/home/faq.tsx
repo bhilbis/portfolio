@@ -11,17 +11,6 @@ const faqItems = [
     answer: "I offer full-stack web development services including frontend development with React/Next.js, backend development with Node.js, and database design. I specialize in creating responsive, accessible, and performant web applications."
   },
   {
-    question: "What is your development process?",
-    answer: [
-      "Requirements gathering and project planning",
-      "Design and prototyping",
-      "Development with regular client check-ins",
-      "Testing and quality assurance",
-      "Deployment",
-      "Ongoing support and maintenance as needed"
-    ]
-  },
-  {
     question: "How long does a typical project take?",
     answer: "Project timelines vary based on complexity and scope. A simple website might take 2-4 weeks, while a complex web application could take 2-3 months or more. I'll provide a detailed timeline estimate during our initial consultation."
   },
