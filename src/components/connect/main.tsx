@@ -122,7 +122,7 @@ const ConnectWithMe = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-lg opacity-75 animate-pulse" />
                 <div className="relative w-24 h-24 rounded-full border-2 border-white/30 dark:border-white/20 shadow-xl overflow-hidden">
                   <div className="w-full h-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-white text-2xl font-bold">
-                    <Image src="/small.jpg" alt="Profile" width={96} height={96} />
+                    <Image src="/31.webp" alt="Profile" width={96} height={96} />
                   </div>
                 </div>
                 <motion.div
