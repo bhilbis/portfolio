@@ -13,7 +13,7 @@ export default function Home() {
   const isMobile = useMediaQuery('(max-width: 768px)');
   return (
     <>
-      <div className="min-h-screen flex flex-col justify-center items-center p-4">
+      <div className="min-h-screen flex flex-col justify-center items-center p-2 md:p-4">
         <Hero />
         <About />
         <Projects />

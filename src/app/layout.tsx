@@ -24,6 +24,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/Asset 2@4x.png" />
+      </head>
       <body
         className={`antialiased ${inter.variable} transition-colors`}
       >

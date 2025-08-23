@@ -13,7 +13,7 @@ export default function CursorEffect() {
       transition={{ type: "spring", stiffness: 500, damping: 30 }}
       style={{ willChange: "transform" }}
     >
-      <div className="w-5 h-5 rounded-full bg-blue-400 opacity-60 mix-blend-multiply blur-sm"></div>
+      <div className="w-5 h-5 rounded-full bg-blue-300 opacity-60 mix-blend-multiply blur-sm"></div>
     </motion.div>
   );
 };

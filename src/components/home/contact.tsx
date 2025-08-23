@@ -27,7 +27,7 @@ export function Contact() {
             <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
                 <div className="mb-12">
                     <div className="inline-flex items-center gap-2 px-6 py-3 backdrop-blur-lg rounded-full border shadow-lg mb-8 transition-all duration-300 
-                        bg-white/80 border-white/20 text-gray-700 dark:bg-gray-800/80 dark:border-gray-700/20 dark:text-gray-">
+                        bg-white/80 border-white/20 text-gray-700 dark:bg-gray-800/80 dark:border-gray-700/20 dark:text-white/80">
                         <Heart className="w-5 h-5 text-red-500 animate-pulse" />
                         <span className="font-medium">Thank You</span>
                     </div>
