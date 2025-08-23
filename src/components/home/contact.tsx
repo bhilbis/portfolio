@@ -6,79 +6,66 @@ export function Contact() {
     };
 
     return (
-        <div id="contact" className="w-full min-h-screen flex items-center justify-center relative overflow-hidden transition-all">
+        <section
+        id="contact"
+        className="w-full min-h-screen relative flex items-center justify-center from-white to-gray-50 dark:from-gray-950 dark:to-gray-900 px-6"
+        >
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            {[...Array(8)].map((_, i) => (
+                <div
+                key={i}
+                className="absolute w-2 h-2 rounded-full bg-blue-500/30 dark:bg-blue-400/40 animate-float"
+                style={{
+                    left: `${10 + i * 12}%`,
+                    top: `${15 + (i % 4) * 20}%`,
+                    animationDelay: `${i * 1.2}s`,
+                    animationDuration: `${6 + i * 2}s`,
+                }}
+                />
+            ))}
+        </div>
 
-            {/* Floating Particles */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                {[...Array(6)].map((_, i) => (
-                    <div
-                        key={i}
-                        className="absolute w-2 h-2 rounded-full animate-bounce bg-blue-500/30 dark:bg-blue-400/40"
-                        style={{
-                            left: `${20 + i * 15}%`,
-                            top: `${20 + (i % 3) * 20}%`,
-                            animationDelay: `${i * 0.5}s`,
-                            animationDuration: `${2 + i * 0.3}s`
-                        }}
-                    />
-                ))}
+            
+        <div className="text-center max-w-3xl space-y-8">
+            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border shadow-sm 
+            bg-white/70 dark:bg-gray-800/60 border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-700 dark:text-gray-300">
+            <Heart className="w-4 h-4 text-red-500 animate-pulse" />
+            Thank You
             </div>
 
-            <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
-                <div className="mb-12">
-                    <div className="inline-flex items-center gap-2 px-6 py-3 backdrop-blur-lg rounded-full border shadow-lg mb-8 transition-all duration-300 
-                        bg-white/80 border-white/20 text-gray-700 dark:bg-gray-800/80 dark:border-gray-700/20 dark:text-white/80">
-                        <Heart className="w-5 h-5 text-red-500 animate-pulse" />
-                        <span className="font-medium">Thank You</span>
-                    </div>
+            {/* Title */}
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent dark:from-blue-400 dark:via-purple-400 dark:to-cyan-400">
+            Thanks for <br />
+            <span className="relative inline-block">
+                Visiting
+                <Sparkles className="absolute -top-4 -right-8 w-6 h-6 text-yellow-400 animate-spin-slow" />
+            </span>
+            </h1>
 
-                    <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight transition-all duration-300 
-                        bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent
-                        dark:from-blue-400 dark:via-purple-400 dark:to-cyan-400 ">
-                        Thanks for
-                        <br />
-                        <span className="relative inline-block">
-                            Visiting
-                            <Sparkles className="absolute -top-2 -right-8 w-8 h-8 text-yellow-400 animate-spin" style={{ animationDuration: '3s' }} />
-                        </span>
-                    </h1>
+            {/* Subtitle */}
+            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300">
+            Hope you enjoyed exploring my work!
+            </p>
 
-                    <p className="text-xl md:text-2xl mb-4 font-light transition-colors duration-300 dark:text-gray-300 text-gray-600">
-                        Hope you enjoyed exploring my work!
-                    </p>
-                    
-                    <p className="text-lg mb-12 max-w-2xl mx-auto transition-colors duration-300 text-gray-500 dark:text-gray-400">
-                        Ready to bring your ideas to life? Let&apos;s start a conversation and create something amazing together.
-                    </p>
-                </div>
+            <p className="text-base md:text-lg text-gray-500 dark:text-gray-400 max-w-xl mx-auto">
+            Ready to bring your ideas to life? Let&apos;s start a conversation and
+            create something amazing together.
+            </p>
 
-                {/* Chat Button */}
-                <div className="relative group">
-                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 rounded-2xl blur opacity-70 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
-                    
-                    <button
-                        onClick={handleChatClick}
-                        className="relative hover:cursor-pointer flex items-center bg-white dark:bg-gray-900 gap-4 px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl mx-auto"
-                    >
-                        <div className="flex items-center gap-3">
-                            <div className="relative">
-                                <MessageCircle className="w-6 h-6 text-green-500" />
-                                <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full animate-ping"></div>
-                                <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full"></div>
-                            </div>
-                            <span className="transition-colors duration-300 bg-gradient-to-r from-gray-700 to-gray-900 dark:from-gray-100 dark:to-gray-300 bg-clip-text text-transparent">
-                                Let&apos;s Chat on WhatsApp
-                            </span>
-                        </div>
-                        
-                        <div className="w-0 group-hover:w-6 overflow-hidden transition-all duration-300">
-                            <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center">
-                                <span className="text-white text-sm">→</span>
-                            </div>
-                        </div>
-                    </button>
-                </div>
+            {/* CTA Button */}
+            <div className="pt-4">
+            <button
+                onClick={handleChatClick}
+                className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-xl 
+                font-semibold text-lg bg-gradient-to-r from-blue-500 to-cyan-500 text-white 
+                shadow-md hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+                <MessageCircle className="w-6 h-6" />
+                Let&apos;s Chat on WhatsApp
+                <span className="ml-2 transform group-hover:translate-x-1 transition-transform">→</span>
+            </button>
             </div>
         </div>
+        </section>
     )
 }
