@@ -35,9 +35,8 @@ export function Contact() {
 
             {/* Title */}
             <h1 className="text-4xl md:text-6xl font-bold leading-tight bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent dark:from-blue-400 dark:via-purple-400 dark:to-cyan-400">
-            Thanks for <br />
+            Thanks for <br /> Visiting
             <span className="relative inline-block">
-                Visiting
                 <Sparkles className="absolute -top-4 -right-8 w-6 h-6 text-yellow-400 animate-spin-slow" />
             </span>
             </h1>
