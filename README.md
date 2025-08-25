@@ -32,15 +32,6 @@ My portfolio highlights selected projects, technical skills, and a glimpse into 
 
 ---
 
-## 📸 Project Highlights
-
-<!-- Explore some of my favorite projects right on the website:
-# - **Project 1:** Brief description or tagline.
-# - **Project 2:** Brief description or tagline.
-# - *(Add more as needed!)* -->
-
----
-
 ## 🛠️ Getting Started
 
 Clone the repo and run locally with Bun:
@@ -64,7 +55,7 @@ Open [http://localhost:3000](http://localhost:3000) to see the site in action!
 ## 📬 Contact
 
 - **Email:** [bhilbis123@gmail.com](mailto:bhilbis@gmail.com)
-- **LinkedIn:** [linkedin.com](https://www.linkedin.com/in/flexsy-bilbis-triwibowo-ab833a2b1/)
+- **LinkedIn:** [linkedin.com](https://www.linkedin.com/in/flexsy-bilbis-triwibowo)
 
 Let's connect!
 
