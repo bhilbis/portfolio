@@ -80,7 +80,6 @@ export const interests = [
   { title: '🇮🇩 Indonesia', color: ''},
   { icon: CoffeeIcon, title: 'Coffee Lover', color: 'brown'},
   { icon: Zap, title: 'Freelancer', color: 'yellow'},
-
 ];
 
 export const experience = [
@@ -90,17 +89,40 @@ export const experience = [
     description: 'Built multiple client projects technologies.'
   },
   {
-    year: 'July-Dec 2024',
+    year: 'July - Dec 2024',
     title: 'Intern Frontend Developer at 3PM Solutions',
     description: 'Specialized in creating responsive and accessible user interfaces.'
   },
   {
-    year: '2022-2025',
+    year: '2022 - 2025',
     title: 'Started Coding Journey In SMK N 1 Purwosari',
     description: 'Began learning web development and fell in love with creating digital solutions.'
   }
 ]
 
 export const achievements = [
-
+  {
+    title: "Search Engine Optimization (SEO) with Squarespace",
+    org: "Coursera Project Network",
+    date: "Agu 2025",
+    credential: "9HSN6738CCQ2",
+  },
+  {
+    title: "Certificate Of Competence - Junior Assistant Programmer",
+    org: "Badan Nasional Sertifikasi Profesi (BNSP)",
+    date: "Jul 2025 - Jul 2028",
+    credential: "—",
+  },
+  {
+    title: "Uji Kompetensi",
+    org: "Inagata Technosmith",
+    date: "Feb 2025",
+    credential: "149/SERF/IGT/II/2025",
+  },
+  {
+    title: "Belajar Dasar Pemrograman Web",
+    org: "Dicoding Indonesia",
+    date: "Feb 2024 - Feb 2027",
+    credential: "53XEYG2V0PRN",
+  },
 ]

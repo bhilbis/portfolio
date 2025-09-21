@@ -7,7 +7,7 @@ import { allProjects, categories, techStacks } from '@/lib/data';
 type ProjectContextType = {
   activeProject: number;
   setActiveProject: (index: number) => void;
-  isAutoPlay: boolean;
+  isAutoPlay: boolean | null;
   setIsAutoPlay: (isPlaying: boolean) => void;
   selectedCategory: string;
   setSelectedCategory: (category: string) => void;
@@ -26,7 +26,7 @@ const ProjectContext = createContext<ProjectContextType | undefined>(undefined);
 
 export const ProjectProvider = ({ children }: { children: ReactNode }) => {
   const [activeProject, setActiveProject] = useState(0);
-  const [isAutoPlay, setIsAutoPlay] = useState(true);
+  const [isAutoPlay, setIsAutoPlay] = useState<boolean | null>(null);
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedTech, setSelectedTech] = useState('all');
   const [isFilterMenuOpen, setIsFilterMenuOpen] = useState(false);
@@ -95,6 +95,10 @@ export const ProjectProvider = ({ children }: { children: ReactNode }) => {
     setActiveProject(0);
     setIsAutoPlay(false);
   }, [selectedCategory, selectedTech]);
+
+  useEffect(() => {
+    if (isAutoPlay === null) setIsAutoPlay(true);
+  }, [isAutoPlay]);
 
   useEffect(() => {
     if (!isAutoPlay || filteredProjects.length === 0) return;

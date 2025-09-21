@@ -1,4 +1,4 @@
-import { Heart, MessageCircle, Sparkles } from "lucide-react";
+import { MessageCircle, MoveRight, Sparkles } from "lucide-react";
 
 export function Contact() {
     const handleChatClick = () => {
@@ -28,9 +28,8 @@ export function Contact() {
             
         <div className="text-center max-w-3xl space-y-8">
             <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border shadow-sm 
-            bg-white/70 dark:bg-gray-800/60 border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-700 dark:text-gray-300">
-            <Heart className="w-4 h-4 text-red-500 animate-pulse" />
-            Thank You
+            bg-white/70 dark:bg-gray-800/60 border-gray-200 dark:border-gray-700 text-md font-medium text-gray-700 dark:text-gray-300">
+            <span className="text-lg">💗</span> Thank You
             </div>
 
             {/* Title */}
@@ -60,8 +59,8 @@ export function Contact() {
                 shadow-md hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
                 <MessageCircle className="w-6 h-6" />
-                Let&apos;s Chat on WhatsApp
-                <span className="ml-2 transform group-hover:translate-x-1 transition-transform">→</span>
+                Connect on WhatsApp
+                <span className="ml-2 transform group-hover:translate-x-1 transition-transform"><MoveRight /></span>
             </button>
             </div>
         </div>

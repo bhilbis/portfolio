@@ -8,10 +8,10 @@ const FilterSection = () => {
     isFilterMenuOpen, 
     selectedCategory, 
     setSelectedCategory, 
-    selectedTech, 
-    setSelectedTech,
+    // selectedTech, 
+    // setSelectedTech,
     availableCategories,
-    availableTechs,
+    // availableTechs,
     isMobile,
     setIsFilterMenuOpen
   } = useProjectContext();
@@ -23,10 +23,10 @@ const FilterSection = () => {
       isFilterMenuOpen ? 'flex opacity-100 scale-100' : 'hidden opacity-0 scale-95',
       'lg:flex lg:flex-row lg:opacity-100 lg:scale-100 transition-all duration-300 ease-in-out'
     )}>
-      <div className="grid lg:grid-cols-2 gap-4 w-full max-w-4xl mx-auto">
+      <div className="grid gap-4 w-full max-w-4xl">
         {/* PLATFORM SECTION */}
-        <div className="flex items-start gap-2">
-          <span className="w-[80px] shrink-0 pt-2 text-sm font-medium text-black/60 dark:text-white/60">
+        <div className="flex items-center justify-center gap-2">
+          <span className="w-[80px] shrink-0 text-sm font-medium text-black/60 dark:text-white/60">
             Platform:
           </span>
           <div className="flex flex-wrap gap-2 sm:gap-3">
@@ -55,7 +55,7 @@ const FilterSection = () => {
         </div>
 
         {/* TECH SECTION */}
-        <div className="flex items-start gap-2">
+        {/* <div className="flex items-start gap-2">
           <span className="w-[80px] shrink-0 pt-2 text-sm font-medium text-black/60 dark:text-white/60">
             Tech:
           </span>
@@ -77,7 +77,7 @@ const FilterSection = () => {
                 </button>
               ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

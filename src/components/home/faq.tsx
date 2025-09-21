@@ -3,16 +3,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Minus, Plus, TableOfContents } from 'lucide-react';
+import { Minus, Plus } from 'lucide-react';
 
 const faqItems = [
   {
     question: "What services do you offer?",
     answer: "I offer full-stack web development services including frontend development with React/Next.js, backend development with Node.js, and database design. I specialize in creating responsive, accessible, and performant web applications."
-  },
-  {
-    question: "How long does a typical project take?",
-    answer: "Project timelines vary based on complexity and scope. A simple website might take 2-4 weeks, while a complex web application could take 2-3 months or more. I'll provide a detailed timeline estimate during our initial consultation."
   },
   {
     question: "Do you offer maintenance after the project is complete?",
@@ -24,7 +20,7 @@ const faqItems = [
   },
   {
     question: "How do we get started working together?",
-    answer: "Getting started is easy! Just reach out through the contact form or email me directly. We'll schedule an initial consultation to discuss your project requirements, timeline, and budget. From there, I'll provide a proposal and we can move forward with the development process."
+    answer: "Getting started is easy! Just reach out through the contact link below or email me directly. I'll schedule an initial consultation to discuss your project requirements, timeline, and budget."
   }
 ];
 
@@ -33,8 +29,7 @@ export function FAQ() {
     <section id="faq" className="py-20 max-w-7xl w-full">
       <div className='w-full flex justify-center items-center'>
           <div className="flex items-center text-center gap-2 px-4 py-2 bg-black/5 dark:bg-white/5  backdrop-blur-sm rounded-full border border-black/10 dark:border-white/10  mb-4 sm:mb-6">
-              <TableOfContents className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
-              <span className="text-black/80 dark:text-white/80 text-sm font-medium">FAQ</span>
+              <span className="text-black/80 dark:text-white/80 text-md font-medium"><span className='text-lg'>🗨️</span> FAQ</span>
           </div>
       </div>
       <motion.div

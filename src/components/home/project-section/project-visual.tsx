@@ -8,7 +8,7 @@ const ProjectVisual = () => {
 
   return (
     <div className="relative mt-4 sm:mt-0">
-      <div className={`aspect-square rounded-3xl bg-gradient-to-br ${currentProject.color} p-1`}>
+      <div className={`aspect-[1/0.8] rounded-3xl bg-gradient-to-br ${currentProject.color} p-1`}>
         <div className="w-full h-full bg-black/90 rounded-3xl flex items-center justify-center relative overflow-hidden">
           <div className="absolute inset-4 border border-white/20 rounded-2xl">
             <div className="flex items-center gap-2 p-3 border-b border-white/10">

@@ -116,6 +116,8 @@ const ProjectInfo = () => {
       <div className="flex flex-wrap gap-3 sm:gap-4 pt-2 sm:pt-4">
         {currentProject.demoUrl && <a
           href={currentProject.demoUrl}
+          target='_blank'
+          rel='noopener noreferrer'
           className={`flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r ${currentProject.color} rounded-lg text-white text-sm sm:text-base font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300`}
         >
           <Zap className="w-4 h-4" />
@@ -123,6 +125,8 @@ const ProjectInfo = () => {
         </a>}
         {currentProject.githubUrl && <a
           href={currentProject.githubUrl}
+          target='_blank'
+          rel='noopener noreferrer'
           className="flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-black/5 dark:bg-white/10 backdrop-blur-sm border border-black/20 dark:border-white/20 rounded-lg text-black dark:text-white text-sm sm:text-base font-semibold hover:bg-black/20 dark:hover:bg-white/20 transition-all duration-300"
         >
           <Github className="w-4 h-4" />
