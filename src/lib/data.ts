@@ -1,4 +1,4 @@
-import { Code2, CodeSquareIcon, CoffeeIcon, Filter, Monitor, Palette, Rocket, Server, Smartphone, Zap } from "lucide-react";
+import { Code2, CodeSquareIcon, CoffeeIcon, Filter, Monitor, Palette, Server, Smartphone, Zap } from "lucide-react";
 
 // ===================== Project Data =====================
 export const allProjects = [
