@@ -16,9 +16,9 @@ const inter = Inter({
 const siteUrl = "https://aoixsy-portfolio.vercel.app";
 
 export const metadata: Metadata = {
-  title: "Flexsy Bilbis",
+  title: "AoiXsy | Software Developer",
   description:
-    "Hi, I'm Flexsy Bilbis, a software developer from Indonesia. Explore my projects, skills, and experience in building modern web applications.",
+    "Hi, I'm Flexsy Bilbis Triwibowo, a software developer from Indonesia. Explore my projects, skills, and experience in building modern web applications.",
   keywords: [
     "Flexsy Bilbis",
     "Software Developer",
@@ -27,13 +27,13 @@ export const metadata: Metadata = {
     "Next.js Developer",
     "Indonesia",
   ],
-  authors: [{ name: "Flexsy Bilbis" }],
+  authors: [{ name: "Flexsy Bilbis Triwibowo" }],
   openGraph: {
-    title: "Flexsy Bilbis | Software Developer",
+    title: "Flexsy Bilbis Triwibowo | Software Developer",
     description:
       "Explore my projects, skills, and portfolio as a software developer from Indonesia.",
     url: siteUrl,
-    siteName: "Flexsy Bilbis Portfolio",
+    siteName: "Flexsy Bilbis Triwibowo Portfolio",
     images: [
       {
         url: `${siteUrl}/image.png`,
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     title: "Flexsy Bilbis | Software Developer",
     description:
       "My portfolio showcasing projects and skills in web development.",
-    images: [`${siteUrl}/og-image.png`],
+    images: [`${siteUrl}/image.png`],
     creator: "@Net40569629",
   },
   metadataBase: new URL(siteUrl),

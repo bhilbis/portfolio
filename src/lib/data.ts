@@ -1,20 +1,20 @@
-import { Code2, Filter, Monitor, Palette, Rocket, Server, Smartphone } from "lucide-react";
+import { Code2, CodeSquareIcon, CoffeeIcon, Filter, Monitor, Palette, Rocket, Server, Smartphone, Zap } from "lucide-react";
 
 // ===================== Project Data =====================
 export const allProjects = [
-  {
-    id: 1,
-    title: "Website SMKN 1 Purwosari",
-    subtitle: "School Website",
-    description: "A modern school website featuring an intuitive dashboard designed to provide a clear overview of school data and activities with beautiful, easy-to-understand data visualizations.",
-    tech: ["NextJS", "TypeScript", "TailwindCSS", "Motion"],
-    category: "web",
-    primaryTech: "nextjs",
-    color: "from-cyan-400 to-blue-600",
-    accent: "cyan",
-    demoUrl: "https://www.smkn1purwosari.sch.id/public/",
-    icon: [Monitor]
-  },
+  // {
+  //   id: 1,
+  //   title: "Website SMKN 1 Purwosari",
+  //   subtitle: "School Website",
+  //   description: "A modern school website featuring an intuitive dashboard designed to provide a clear overview of school data and activities with beautiful, easy-to-understand data visualizations.",
+  //   tech: ["NextJS", "TypeScript", "TailwindCSS", "Motion"],
+  //   category: "web",
+  //   primaryTech: "nextjs",
+  //   color: "from-cyan-400 to-blue-600",
+  //   accent: "cyan",
+  //   demoUrl: "https://www.smkn1purwosari.sch.id/public/",
+  //   icon: [Monitor]
+  // },
   {
     id: 2,
     title: "Ticketing App",
@@ -74,9 +74,13 @@ export const categories = [
 
 // ===================== About Data =====================
 export const interests = [
-  { icon: Code2, title: 'Clean Code', description: 'Writing maintainable and elegant code' },
-  { icon: Palette, title: 'Design Systems', description: 'Creating consistent user experiences' },
-  { icon: Rocket, title: 'Performance', description: 'Optimizing for speed and efficiency' },
+  { icon: Code2, title: 'Clean Code', color: 'green'},
+  { icon: Palette, title: 'Design Systems', color: 'red'},
+  { icon: CodeSquareIcon, title: 'Full Stack Web Developer', color: 'blue'},
+  { title: '🇮🇩 Indonesia', color: ''},
+  { icon: CoffeeIcon, title: 'Coffee Lover', color: 'brown'},
+  { icon: Zap, title: 'Freelancer', color: 'yellow'},
+
 ];
 
 export const experience = [
@@ -95,4 +99,8 @@ export const experience = [
     title: 'Started Coding Journey In SMK N 1 Purwosari',
     description: 'Began learning web development and fell in love with creating digital solutions.'
   }
+]
+
+export const achievements = [
+
 ]
